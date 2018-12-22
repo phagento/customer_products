@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Phagento
+ * @package  Customerproducts
+ * @copyright   Copyright (c) 2018
+ * @author  Joenas Ejes <joenasejes@gmail.com>
+ */
+-->
+<config>
+    <modules>
+        <Phagento_Customerproducts>
+            <version>2.0.0</version>
+        </Phagento_Customerproducts>
+    </modules>
+
+    <frontend>
+        <routers>
+            <customer_account>
+                <use>standard</use>
+                <args>
+                    <module>Phagento_Customerproducts</module>
+                    <frontName>customer_account</frontName>
+                </args>
+            </customer_account>
+        </routers>
+
+        <layout>
+            <updates>
+                <phagento_customerproducts>
+                    <file>phagento_customerproducts.xml</file>
+                </phagento_customerproducts>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <models>
+            <phagento_customerproducts>
+                <class>Phagento_Customerproducts_Model</class>
+                <resourceModel>phagento_customerproducts_resource</resourceModel>
+            </phagento_customerproducts>
+            <phagento_customerproducts_resource>
+                <class>Phagento_Customerproducts_Model_Resource</class>
+            </phagento_customerproducts_resource>
+        </models>
+
+        <blocks>
+            <phagento_customerproducts>
+                <class>Phagento_Customerproducts_Block</class>
+            </phagento_customerproducts>
+        </blocks>
+
+        <helpers>
+            <phagento_customerproducts>
+                <class>Phagento_Customerproducts_Helper</class>
+            </phagento_customerproducts>
+        </helpers>
+
+        <resources>
+            <phagento_customerproducts_setup>
+                <setup>
+                    <module>Phagento_Customerproducts</module>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                </setup>
+            </phagento_customerproducts_setup>
+        </resources>
+    </global>
+
+    <default>
+        <phagento_customerproducts>
+            <general>
+                <enable>0</enable>
+                <product_limit>4</product_limit>
+                <enable_pagination>0</enable_pagination>
+            </general>
+        </phagento_customerproducts>
+    </default>
+</config>

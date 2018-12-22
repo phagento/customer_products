@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Phagento
+ * @package  Customerproducts
+ * @copyright   Copyright (c) 2018
+ * @author  Joenas Ejes <joenasejes@gmail.com>
+ */
+-->
+<config>
+    <tabs>
+        <phagento translate="label" module="phagento_customerproducts">
+            <label>Phagento Extensions</label>
+            <sort_order>500</sort_order>
+        </phagento>
+    </tabs>
+    <sections>
+        <phagento_customerproducts translate="label" module="phagento_customerproducts">
+            <class>separator-top</class>
+            <label>Customer Products</label>
+            <tab>phagento</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>500</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <enable translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable>
+                        <product_limit translate="label">
+                            <label>Product limit</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <comment><![CDATA[Number of products to display on customer account page. If left blank, default is 10.]]></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </product_limit>
+                        <enable_pagination translate="label">
+                            <label>Enable Pagination</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <comment><![CDATA[Pagination for the List mode.]]></comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_pagination>
+                    </fields>
+                </general>
+            </groups>
+        </phagento_customerproducts>
+    </sections>
+</config>
+

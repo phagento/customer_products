@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Phagento
+ * @package  Customerproducts
+ * @copyright   Copyright (c) 2018
+ * @author  Joenas Ejes <joenasejes@gmail.com>
+ */
+-->
+<config>
+    <modules>
+        <Phagento_Customerproducts>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Phagento_Customerproducts>
+    </modules>
+</config>

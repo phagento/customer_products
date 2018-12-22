@@ -1,0 +1,44 @@
+/**
+ * @category    Phagento
+ * @package  Customerproducts
+ * @copyright   Copyright (c) 2018
+ * @author  Joenas Ejes <joenasejes@gmail.com>
+ */
+
+/* Phagento_Customerproducts =============================================================================== */
+
+.my-account .view-mode {
+    float: left;
+    overflow: hidden;
+    font-size: 13px;
+}
+
+.my-account .product-slider {
+    clear: both;
+    margin: 50px auto;
+}
+
+.my-account .toolbar-bottom {
+    margin: 10px auto 5px;
+}
+
+.my-account .price-box {
+    margin: 0;
+}
+
+.product-slider__item {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.product-slider__sku {
+    margin: 10px auto;
+}
+
+.slick-prev:before, .slick-next:before {
+    color: #3399cc;
+}
+
+.slick-prev, .slick-next {
+    top: 40%;
+}

@@ -1,0 +1,81 @@
+<?php
+/**
+ * @category    Phagento
+ * @package  Customerproducts
+ * @copyright   Copyright (c) 2018
+ * @author  Joenas Ejes <joenasejes@gmail.com>
+ */
+?>
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<?php $_products = $this->getLoadedProductCollection(); ?>
+<div class="page-title">
+    <h1><?php echo $this->__('My Products') ?></h1>
+</div>
+<?php if ($_products->count()): ?>
+    <?php echo $this->getViewSwitcherHtml(); ?>
+    <?php if ($this->getMode() != 'slider'): ?>
+        <?php echo $this->getPagerHtml(); ?>
+        <table class="data-table" id="my-products-table">
+            <col width="1"/>
+            <col width="1"/>
+            <col width="1"/>
+            <col width="1"/>
+            <thead>
+            <tr>
+                <th><?php echo $this->__('Image') ?></th>
+                <th><?php echo $this->__('Name') ?></th>
+                <th><?php echo $this->__('SKU') ?></th>
+                <th><?php echo $this->__('Price') ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($_products as $_product): ?>
+                <tr>
+                    <td>
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="customer-product-image">
+                            <?php $_imgSize = 200; ?>
+                            <img id="product-collection-image-<?php echo $_product->getId(); ?>" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize); ?>"
+                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+                        </a>
+                    </td>
+                    <td>
+                        <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a></h2>
+                    </td>
+                    <td><?php echo $this->escapeHtml($_product->getSku()) ?></td>
+                    <td><?php echo $this->getPriceHtml($_product, true) ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+        <script type="text/javascript">decorateTable('my-products-table');</script>
+        <div class="toolbar-bottom">
+            <?php echo $this->getViewSwitcherHtml(); ?>
+            <?php echo $this->getPagerHtml(); ?>
+        </div>
+    <?php else: ?>
+        <div class="product-slider">
+            <?php foreach ($_products as $_product): ?>
+                <div class="product-slider__item">
+                    <div class="product-slider__image">
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="customer-product-image">
+                            <?php $_imgSize = 290; ?>
+                            <img id="product-collection-image-<?php echo $_product->getId(); ?>" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize); ?>"
+                                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+                        </a>
+                    </div>
+                    <div class="product-slider__sku">
+                        <?php echo $this->escapeHtml($_product->getSku()) ?>
+                    </div>
+                    <div class="product-slider__name">
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a>
+                    </div>
+                    <div class="product-slider__price">
+                        <?php echo $this->getPriceHtml($_product, true) ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+<?php else: ?>
+    <p><?php echo $this->__('No products found.'); ?></p>
+<?php endif ?>

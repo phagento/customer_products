@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    Phagento
+ * @package  Customerproducts
+ * @copyright   Copyright (c) 2018
+ * @author  Joenas Ejes <joenasejes@gmail.com>
+ */
+-->
+
+<layout version="0.1.0">
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label title" module="phagento_customerproducts" ifconfig="phagento_customerproducts/general/enable">
+                <label>My Products</label>
+                <url>customer_account/product/list</url>
+                <title>My Products</title>
+                <prepare/>
+                <urlParams/>
+                <position>1</position>
+            </action>
+        </reference>
+    </customer_account>
+
+    <customer_account_product_list translate="label">
+        <label>My Products</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="addCss"><name>css/phagento/customer-products/slick.css</name><params/></action>
+            <action method="addCss"><name>css/phagento/customer-products/style.css</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/phagento/customer-products/slick.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/phagento/customer-products/slider.js</name><params/></action>
+        </reference>
+        <reference name="my.account.wrapper">
+            <block type="phagento_customerproducts/product_list" name="product.list" template="phagento/customerproducts/list.phtml">
+                <block type="core/text_list" name="customer.products" as="info" translate="label">
+                    <label>My Products Info</label>
+                </block>
+                <block type="phagento_customerproducts/product_list" name="view.switcher" template="phagento/customerproducts/view-switcher.phtml"/>
+                <block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml"/>
+            </block>
+        </reference>
+    </customer_account_product_list>
+</layout>
